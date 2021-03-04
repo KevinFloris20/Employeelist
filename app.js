@@ -4,11 +4,87 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+let newHire;
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Employee = require("./lib/Employee");
+
+//first inquire
+inquirer
+  .prompt([
+      {
+          type: "confirm",
+          name: "confirm1",
+          message: "Hello! Please fill out the questions regarding the new hire:"
+      },
+      {
+          type: "input",
+          name: "name",
+          message: "What is the new hires name?:"
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the new hires email?:"
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the new hires id?:"
+      },
+      {
+          type: "checkbox",
+          name: "check",
+          message: "Is your new hire a?:",
+          choices: ["Employee", "Engineer", "Intern", "Manager"]
+      }
+      
+    ])
+    .then(answers =>{
+
+    });
+
+//manager inquire
+function b(id, name, email){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "room",
+            message: "What is the new Managers Room number?:"
+        }
+    ]).then(answers =>{
+        newHire = new Manager(id, name, email, answers.room)
+    });
+}
+
+//engineer inqire
+function c(id, name, email){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "git",
+            message: "What is the new Engineers gitHub?:"
+        },
+    ]).then(answers =>{
+        newHire = new Engineer(id, name, email, answers.git)
+    });
+}
+
+//intern inquire
+function d(id, name, email){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "school",
+            message: "What is the new Interns school name?:"
+        },
+    ]).then(answers =>{
+        newHire = new Intern(id, name, email, answers.school)
+    });
+}
 
 
 // Write code to use inquirer to gather information about the development team members,

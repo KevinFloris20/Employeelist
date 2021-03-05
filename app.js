@@ -17,8 +17,9 @@ inquirer
   .prompt([
       {
           type: "confirm",
-          name: "confirm1",
-          message: "Hello! Please fill out the questions regarding the new hire:"
+          message: "Hello! Please fill out the questions regarding the new hire",
+          name: "gg"
+          
       },
       {
           type: "input",
@@ -36,15 +37,27 @@ inquirer
         message: "What is the new hires id?:"
       },
       {
-          type: "checkbox",
+          type: "rawList",
           name: "check",
           message: "Is your new hire a?:",
-          choices: ["Employee", "Engineer", "Intern", "Manager"]
+          choices: ["Manager", "Engineer", "Intern", "Employee"]
       }
       
     ])
     .then(answers =>{
-
+        if(answers.check == 1){
+            b(answers.id, answers.name, answers.email);
+        }
+        if(answers.check == 2){
+            c(answers.id, answers.name, answers.email);
+        }
+        if(answers.check == 3){
+            d(answers.id, answers.name, answers.email);
+        }
+        if(answers.check == 4){
+            newHire = new Employee(ianswers.id, answers.name, answers.email);
+            render(newHire);
+            }        
     });
 
 //manager inquire
@@ -56,7 +69,8 @@ function b(id, name, email){
             message: "What is the new Managers Room number?:"
         }
     ]).then(answers =>{
-        newHire = new Manager(id, name, email, answers.room)
+        newHire = new Manager(id, name, email, answers.room);
+        render(newHire);
     });
 }
 
@@ -69,7 +83,8 @@ function c(id, name, email){
             message: "What is the new Engineers gitHub?:"
         },
     ]).then(answers =>{
-        newHire = new Engineer(id, name, email, answers.git)
+        newHire = new Engineer(id, name, email, answers.git);
+        render(newHire);
     });
 }
 
@@ -82,9 +97,18 @@ function d(id, name, email){
             message: "What is the new Interns school name?:"
         },
     ]).then(answers =>{
-        newHire = new Intern(id, name, email, answers.school)
+        newHire = new Intern(id, name, email, answers.school);
+        console.log(newHire);
+        render(Object.keys(Intern));
+        // render(Object.keys(Intern));
     });
 }
+
+//render the array
+
+
+
+
 
 
 // Write code to use inquirer to gather information about the development team members,

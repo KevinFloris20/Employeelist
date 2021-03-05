@@ -11,6 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
+let team = [];
 
 //first inquire
 inquirer
@@ -98,9 +99,10 @@ function d(id, name, email){
         },
     ]).then(answers =>{
         newHire = new Intern(id, name, email, answers.school);
-        console.log(newHire);
-        render(Object.keys(Intern));
-        // render(Object.keys(Intern));
+        team.push(newHire);
+        console.log(team);
+        render(team);
+        // render(Object.values(Intern));
     });
 }
 

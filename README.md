@@ -22,7 +22,13 @@ Me and thats it
 
 ## Video
 
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/75303163/110566144-980dad80-811d-11eb-8234-d68939910fc1.gif)
 
+## Screenshots
+
+![htmlll](https://user-images.githubusercontent.com/75303163/110566237-bc698a00-811d-11eb-882a-01f2f3140063.jpg)
+
+![REALcommandline](https://user-images.githubusercontent.com/75303163/110566299-d5723b00-811d-11eb-9166-e576e5993153.jpg)
 
 ## Licence
 
